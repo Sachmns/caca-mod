@@ -1,0 +1,19 @@
+{
+  "itemGroup.cacamod.caca_group": "CACA Mod",
+
+  "item.cacamod.caca": "CACA",
+  "item.cacamod.caca.tooltip": "C'est vraiment du CACA...",
+
+  "item.cacamod.caca_dore": "CACA DORÉ",
+  "item.cacamod.caca_dore.tooltip": "Un CACA extrêmement rare et précieux...",
+
+  "block.cacamod.caca_block": "Tas de CACA",
+
+  "key.cacamod.faire_caca": "Faire caca",
+  "key.category.cacamod.main": "CACA Mod",
+
+  "sound.cacamod.caca_fart": "Bruit de pet",
+  "sound.cacamod.caca_plop": "Plop de CACA",
+  "sound.cacamod.caca_break": "Cassage de CACA",
+  "sound.cacamod.caca_eat": "Dégustation de CACA"
+}
