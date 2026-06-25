@@ -36,7 +36,7 @@ public class CacaBlockBreakHandler {
         // On fait apparaître l'item dans le monde nous-mêmes (le bloc n'a
         // pas de loot table par défaut pointant vers CACA, donc pas de
         // double-drop possible).
-        if (!world.isClient) {
+        if (!world.isClient()) {
             ItemEntity itemEntity = new ItemEntity(
                     world,
                     pos.getX() + 0.5,

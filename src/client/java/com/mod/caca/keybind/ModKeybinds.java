@@ -17,7 +17,7 @@ import org.lwjgl.glfw.GLFW;
  * Options Minecraft > Contrôles > Raccourcis clavier > catégorie "CACA Mod"
  * et peut y être réassignée librement par le joueur.
  *
- * Touche par défaut : P (libre par défaut dans Minecraft vanilla).
+ * Touche par défaut : K (libre par défaut dans Minecraft vanilla).
  */
 public class ModKeybinds {
 
@@ -28,7 +28,7 @@ public class ModKeybinds {
     public static final KeyBinding FAIRE_CACA_KEY = new KeyBinding(
             "key.cacamod.faire_caca",      // clé de traduction (voir lang/fr_fr.json et en_us.json)
             InputUtil.Type.KEYSYM,
-            GLFW.GLFW_KEY_P,                // touche par défaut : P
+            GLFW.GLFW_KEY_K,                // touche par défaut : K
             CACA_CATEGORY
     );
 

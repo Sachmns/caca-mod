@@ -13,10 +13,14 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Contient toute la logique SERVEUR du "CACA System" :
+ * - Cooldown de 30 secondes entre deux utilisations, par joueur
  * - Tirage aléatoire du CACA DORÉ (0,5% = 1/200)
  * - Pose du bloc de CACA au sol près du joueur
  * - Particules + son de "plop"
@@ -36,6 +40,12 @@ public class CacaEvent {
     // Rayon d'écoute exact du bruit de pet, en blocs
     private static final double RAYON_SON_PET = 10.0;
 
+    // Cooldown entre deux utilisations de la touche, en millisecondes (30 secondes)
+    private static final long COOLDOWN_MS = 30_000L;
+
+    // Dernier moment (epoch ms) où chaque joueur a fait caca, par UUID.
+    private static final Map<UUID, Long> LAST_USE = new ConcurrentHashMap<>();
+
     /**
      * Enregistre le récepteur du paquet côté SERVEUR.
      * À appeler une seule fois dans CacaMod#onInitialize().
@@ -50,11 +60,29 @@ public class CacaEvent {
 
     /**
      * Logique principale exécutée côté serveur quand un joueur fait caca.
-     * Aucun cooldown : cette méthode peut être appelée autant de fois que
-     * le joueur appuie sur la touche, sans aucune restriction de fréquence.
+     * Un cooldown de 30 secondes par joueur est appliqué : si le joueur
+     * appuie sur la touche avant la fin du délai, rien ne se passe (à part
+     * un petit message lui indiquant le temps restant).
      */
     private static void handleFaireCaca(ServerPlayerEntity player) {
-        ServerWorld world = player.getServerWorld();
+        UUID playerId = player.getUuid();
+        long now = System.currentTimeMillis();
+        Long lastUse = LAST_USE.get(playerId);
+
+        if (lastUse != null) {
+            long elapsed = now - lastUse;
+            if (elapsed < COOLDOWN_MS) {
+                long remainingSeconds = (COOLDOWN_MS - elapsed + 999) / 1000; // arrondi au-dessus
+                player.sendMessage(
+                        Text.literal("Tu ne peux pas encore faire caca... (" + remainingSeconds + "s restantes)"),
+                        true // action bar
+                );
+                return;
+            }
+        }
+        LAST_USE.put(playerId, now);
+
+        ServerWorld world = player.getEntityWorld();
         BlockPos playerPos = player.getBlockPos();
 
         // Position juste sous/à côté du joueur pour poser le bloc de CACA
@@ -150,11 +178,11 @@ public class CacaEvent {
      * vanilla, pour garantir un rayon EXACT et indépendant du volume du son.
      */
     private static void playFartSoundInRadius(ServerWorld world, ServerPlayerEntity source, double radius) {
-        Vec3d sourcePos = source.getPos();
+        Vec3d sourcePos = source.getEntityPos();
         List<ServerPlayerEntity> nearbyPlayers = world.getPlayers();
 
         for (ServerPlayerEntity target : nearbyPlayers) {
-            double distance = target.getPos().distanceTo(sourcePos);
+            double distance = target.getEntityPos().distanceTo(sourcePos);
             if (distance <= radius) {
                 target.playSoundToPlayer(
                         ModSounds.CACA_FART,

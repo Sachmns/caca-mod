@@ -4,7 +4,7 @@ Mod humoristique complet pour Minecraft **1.21.10** sur **Fabric Loader**, qui a
 
 ## 1. Contenu du mod
 
-- **Touche "Faire caca"** (par défaut `P`), reconfigurable dans *Options > Contrôles > Raccourcis clavier > CACA Mod*. Aucun cooldown.
+- **Touche "Faire caca"** (par défaut `K`), reconfigurable dans *Options > Contrôles > Raccourcis clavier > CACA Mod*. Cooldown de 30 secondes entre deux utilisations.
 - **Bloc `caca_block`** : posé au sol près du joueur, cassable, donne l'item correspondant.
 - **Item `CACA`** : comestible, tooltip *"C'est vraiment du CACA..."*, donne Nausée + Faim en le mangeant.
 - **Item `CACA DORÉ`** : 0,5% de chance (1/200) à chaque utilisation de la touche, tooltip *"Un CACA extrêmement rare et précieux..."*, donne Nausée (courte) + Vitesse II en le mangeant.
@@ -109,7 +109,7 @@ Si vous voulez utiliser le mod compilé dans votre propre installation Minecraft
 
 Une fois en jeu :
 
-1. Ouvrez **Options > Contrôles > Raccourcis clavier**, descendez jusqu'à la catégorie **CACA Mod**, vérifiez/changez la touche "Faire caca" (par défaut `P`).
+1. Ouvrez **Options > Contrôles > Raccourcis clavier**, descendez jusqu'à la catégorie **CACA Mod**, vérifiez/changez la touche "Faire caca" (par défaut `K`).
 2. En jeu, appuyez sur la touche : un bloc de CACA doit apparaître au sol, avec particules et bruit de pet.
 3. Demandez à un autre joueur de se placer à moins de 10 blocs : il doit entendre le pet. Au-delà de 10 blocs, il ne doit rien entendre.
 4. Cassez le bloc : il donne un item **CACA** (ou, avec 0,5% de chance, un **CACA DORÉ** — vous pouvez forcer le test en spammant la touche, statistiquement 1 essai sur 200 sera doré).
