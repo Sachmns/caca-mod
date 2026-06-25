@@ -14,9 +14,17 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 
 /**
- * Enregistrement du bloc de CACA.
- * Ce bloc apparaît au sol quand le joueur utilise la touche "Faire caca".
- * Il est cassable et donne l'item CACA quand il est miné.
+ * Enregistrement du "petit tas de CACA" qui apparaît au sol quand le joueur
+ * utilise la touche "Faire caca".
+ *
+ * C'est volontairement un Block (et non une simple ItemEntity), pour garder
+ * un vrai temps de minage configurable via .strength() (voir point 3 de la
+ * demande utilisateur) : une ItemEntity se ramasserait instantanément en
+ * marchant dessus, sans aucun délai possible.
+ *
+ * L'aspect "petit tas" (et non "gros cube") est entièrement géré du côté
+ * des ressources (voir models/block/caca_block.json, qui utilise un modèle
+ * réduit façon "petit tas" plutôt que cube_all), pas du code Java.
  */
 public class ModBlocks {
 
@@ -25,9 +33,9 @@ public class ModBlocks {
             (settings) -> new Block(settings),
             AbstractBlock.Settings.create()
                     .mapColor(MapColor.DIRT_BROWN)
-                    .strength(0.2f, 0.2f) // très facile à casser, comme une masse molle
+                    .strength(0.5f, 0.5f) // un peu plus long à casser qu'avant (point 3 de la demande)
                     .sounds(BlockSoundGroup.SLIME) // son "mou" pour rappeler une texture organique
-                    .nonOpaque() // pour permettre un modèle non-cube si besoin plus tard
+                    .nonOpaque() // pour permettre un modèle non-cube (petit tas)
                     .dropsNothing() // le drop (CACA ou CACA DORÉ) est géré manuellement dans CacaBlockBreakHandler
     );
 

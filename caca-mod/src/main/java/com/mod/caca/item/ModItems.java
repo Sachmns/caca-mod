@@ -75,10 +75,6 @@ public class ModItems {
                     new StatusEffectInstance(StatusEffects.NAUSEA, 200, 0), // 10 secondes de nausée
                     1.0f
             ))
-            .consumeEffect(new ApplyEffectsConsumeEffect(
-                    new StatusEffectInstance(StatusEffects.HUNGER, 300, 0), // effet "faim" supplémentaire
-                    1.0f
-            ))
             .build();
 
     // ----------------------------------------------------------------
