@@ -50,7 +50,28 @@ public class ModItems {
             "Ton estomac proteste violemment.",
             "C'était... une expérience. Pas une bonne.",
             "Tu sens un goût étrange et persistant.",
-            "Pourquoi as-tu fait ça ?"
+            "Pourquoi as-tu fait ça ?",
+            "Hmm… fait maison.",
+            "Goût… discutable.",
+            "Tu regrettes déjà.",
+            "Pourquoi ? Juste… pourquoi ?",
+            "+1 en dégoût",
+            "Est-ce vraiment nécessaire ?",
+            "Une expérience… unique.",
+            "Tu touches le fond. Littéralement.",
+            "100% bio, 100% toi.",
+            "Zéro gaspillage.",
+            "Même les creepers prennent leurs distances.",
+            "Herobrine a vu ça.",
+            "Erwan en veut aussi",
+            "Antoine adore ça askip",
+            "Ça manque d'épices",
+            "Même pour 50€ je mange pas",
+            "Nan frérot... No troll",
+            "Sekolah",
+            "Wesh doseeee",
+            "Ha c'est la merdeee (littéralement)",
+            "Je te parle plus de cette semaine, la semaine prochaine et dans deux semaines"
     );
 
     // Messages drôles affichés aléatoirement après avoir mangé du CACA DORÉ
@@ -58,7 +79,13 @@ public class ModItems {
             "✨ Un goût... étonnamment raffiné, pour du CACA. ✨",
             "Tu te sens étrangement plein d'énergie !",
             "C'est doré, donc forcément meilleur. Logique imparable.",
-            "Une saveur presque royale... presque."
+            "Une saveur presque royale... presque.",
+            "Le shampoing de Mr Mercier",
+            "Mais ça a le goût du Tasty crousty ?",
+            "C'est très gai",
+            "Ho le croque monsieur",
+            "Ha mais c'est a moi ça ?",
+            "Bah oui qui n'aime pas ça ?"
     );
 
     // ----------------------------------------------------------------

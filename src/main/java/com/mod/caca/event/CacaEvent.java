@@ -137,6 +137,13 @@ public class CacaEvent {
                     Text.literal("✨ Incroyable ! Tu as fait un CACA DORÉ ! ✨"),
                     false
             );
+
+            // Annonce dans le chat, visible par tous les joueurs connectés, avec le pseudo.
+            String playerName = player.getGameProfile().getName();
+            Text announcement = Text.literal(playerName + " A FAIT UN CACA DORÉ !");
+            for (ServerPlayerEntity onlinePlayer : world.getServer().getPlayerManager().getPlayerList()) {
+                onlinePlayer.sendMessage(announcement, false);
+            }
         }
 
         // --- Stocke le type de CACA attendu pour ce bloc, pour le drop au cassage ---
