@@ -139,8 +139,7 @@ public class CacaEvent {
             );
 
             // Annonce dans le chat, visible par tous les joueurs connectés, avec le pseudo.
-            String playerName = player.getGameProfile().getName();
-            Text announcement = Text.literal(playerName + " A FAIT UN CACA DORÉ !");
+            Text announcement = Text.literal("").append(player.getName()).append(Text.literal(" A FAIT UN CACA DORÉ !"));
             for (ServerPlayerEntity onlinePlayer : world.getServer().getPlayerManager().getPlayerList()) {
                 onlinePlayer.sendMessage(announcement, false);
             }
