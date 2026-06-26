@@ -20,7 +20,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Contient toute la logique SERVEUR du "CACA System" :
- * - Cooldown de 30 secondes entre deux utilisations, par joueur
+ * - Cooldown de 2 minutes 30 entre deux utilisations, par joueur
  * - Tirage aléatoire du CACA DORÉ (0,5% = 1/200)
  * - Pose du bloc de CACA au sol près du joueur
  * - Particules + son de "plop"
@@ -40,8 +40,8 @@ public class CacaEvent {
     // Rayon d'écoute exact du bruit de pet, en blocs
     private static final double RAYON_SON_PET = 10.0;
 
-    // Cooldown entre deux utilisations de la touche, en millisecondes (30 secondes)
-    private static final long COOLDOWN_MS = 30_000L;
+    // Cooldown entre deux utilisations de la touche, en millisecondes (2 minutes 30)
+    private static final long COOLDOWN_MS = 150_000L; // 2 minutes 30
 
     // Dernier moment (epoch ms) où chaque joueur a fait caca, par UUID.
     private static final Map<UUID, Long> LAST_USE = new ConcurrentHashMap<>();
@@ -60,7 +60,7 @@ public class CacaEvent {
 
     /**
      * Logique principale exécutée côté serveur quand un joueur fait caca.
-     * Un cooldown de 30 secondes par joueur est appliqué : si le joueur
+     * Un cooldown de 2 minutes 30 par joueur est appliqué : si le joueur
      * appuie sur la touche avant la fin du délai, rien ne se passe (à part
      * un petit message lui indiquant le temps restant).
      */

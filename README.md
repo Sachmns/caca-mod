@@ -4,7 +4,7 @@ Mod humoristique complet pour Minecraft **1.21.10** sur **Fabric Loader**, qui a
 
 ## 1. Contenu du mod
 
-- **Touche "Faire caca"** (par défaut `K`), reconfigurable dans *Options > Contrôles > Raccourcis clavier > CACA Mod*. Cooldown de 30 secondes entre deux utilisations.
+- **Touche "Faire caca"** (par défaut `K`), reconfigurable dans *Options > Contrôles > Raccourcis clavier > CACA Mod*. Cooldown de 2 minutes 30 entre deux utilisations.
 - **Bloc `caca_block`** : posé au sol près du joueur, cassable, donne l'item correspondant.
 - **Item `CACA`** : comestible, tooltip *"C'est vraiment du CACA..."*, donne Nausée + Faim en le mangeant.
 - **Item `CACA DORÉ`** : 0,5% de chance (1/200) à chaque utilisation de la touche, tooltip *"Un CACA extrêmement rare et précieux..."*, donne Nausée (courte) + Vitesse II en le mangeant.
